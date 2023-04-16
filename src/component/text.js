@@ -7,26 +7,31 @@ export default function TextForm(props) {
   const handleupperclick = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert ("converted to uppercase" , "success");
   };
 
   const handleloclick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert ("converted to lowercase" , "success");
   };
 
   const handleclearclick = () => {
     // let newText = text.toLowerCase();
     setText(" ");
+    props.showAlert ("Text is clear" , "success");
   };
 
   const handlesentanceclick = () => {
-    let newText = text.charAt(0).toUpperCase();
+    let newText = text.charAt(0).toUpperCase()+text.slice(1);
     setText(newText);
+    props.showAlert ("converted to 1st letter uppercase" , "success");
   };
 
   const handlesentancelclick = () => {
-    let newText = text.charAt(0).toLowerCase();
+    let newText = text.charAt(0).toLowerCase()+text.slice(1);
     setText(newText);
+    props.showAlert ("converted to 1st letter lowercase" , "success");
   };
 
   const handlechange = (event) => {
@@ -35,7 +40,7 @@ export default function TextForm(props) {
   
   return (
     <>
-    <div className="container"  style={{color : props.mode === "dark" ? "white" : "black"}}>
+    <div className="container"  style = {{color : props.mode === "dark" ? "white" : "black"}}>
       <h1>{props.heading}</h1>
       <div className="mb-3"  >
         {/* <label for="text Box" className="form-label">Example textarea</label> */}
@@ -43,8 +48,8 @@ export default function TextForm(props) {
           className="form-control"
           value={text}
           onChange={handlechange}
+          style = {{backgroundColor: "grey"}}
           // style={{ backgroundColor : props.mode === "dark" ? "grey" : "white"}}
-          style={{ backgroundColor : props.mode === "dark" ? "grey" : "white"}}
           id="flexSwitchCheckDefault"
           rows="10"
           

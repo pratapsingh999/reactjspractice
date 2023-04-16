@@ -64,6 +64,46 @@ function Practice(props) {
                 Enable Dark mode
               </label>
             </div>
+
+            <div
+              className={`form-check form-switch mx-4 text-${
+                props.mode === "light" ? "dark" : "light"
+              }`}
+            >
+              <input
+                className="form-check-input"
+                onClick={props.toggelmode}
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+              />
+              <label
+                className="form-check-label"
+                htmlFor="flexSwitchCheckDefault"
+              >
+                Enable green mode
+              </label>
+            </div>
+
+            <div
+              className={`form-check form-switch mx-4 text-${
+                props.mode === "light" ? "dark" : "light"
+              }`}
+            >
+              <input
+                className="form-check-input"
+                onClick={props.toggelsmode}
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+              />
+              <label
+                className="form-check-label"
+                htmlFor="flexSwitchCheckDefault"
+              >
+                Enable red mode
+              </label>
+            </div>
           </div>
         </div>
       </nav>
