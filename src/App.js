@@ -4,6 +4,14 @@ import TextForm from "./component/text"
 import Alert from "./component/Alert";
 import About from "./component/About";
 
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link
+// } from "react-router-dom";
+
+
 function App() {
   const [mode, setmode] = useState("light");
   const [alert, setAlert] = useState(null)
@@ -62,13 +70,23 @@ function App() {
   }
   return (
     <>
-      <Practice  mode={mode} togalmode={togalmode} toggelmode={toggelmode} toggelsmode={toggelsmode}/>
+    {/* <Route> */}
+      <Practice  mode={mode} togalmode={togalmode} toggelmode={toggelmode} toggelsmode={toggelsmode}/>  
       <Alert alert ={alert}/>
       <div className="container my-3">
-        <TextForm showAlert={showAlert} heading="Enter the text"/>
-        <About />
-      </div>
-       
+      <TextForm showAlert={showAlert} heading="Enter the text"/>
+         <About/>
+      {/* <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/">
+          <TextForm showAlert={showAlert} heading="Enter the text"/>
+          </Route>
+        </Switch> */}
+        </div>
+        {/* </Route> */}
+      
     </>
   );
 }
