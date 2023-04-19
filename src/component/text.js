@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export default function TextForm(props) {
 
-  const [text, setText] = useState("Enter the text hear");
+  const [text, setText] = useState("");     /*Enter the text hear*/
 
   const handleupperclick = () => {
     let newText = text.toUpperCase();
@@ -41,45 +41,45 @@ export default function TextForm(props) {
   return (
     <>
     <div className="container"  style = {{color : props.mode === "dark" ? "white" : "black"}}>
-      <h1>{props.heading}</h1>
+      <h2 className="my-3">{props.heading}</h2>
       <div className="mb-3"  >
         {/* <label for="text Box" className="form-label">Example textarea</label> */}
         <textarea
           className="form-control"
           value={text}
           onChange={handlechange}
-          style = {{backgroundColor: "grey"}}
-          // style={{ backgroundColor : props.mode === "dark" ? "grey" : "white"}}
-          id="flexSwitchCheckDefault"
-          rows="10"
+          // style = {{backgroundColor: "grey"}}
+          style={{ backgroundColor : props.mode === "dark" ? "#13466e" : "white"}}
+          id="mybox"
+          rows="8"
           
        ></textarea>
       </div>
-      <button className="btn btn-primary mx-5" onClick={handleupperclick}>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleupperclick}>
         Convert Uppercase
       </button>
-      <button className="btn btn-primary mx-5" onClick={handleloclick}>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleloclick}>
         Convert Lowercase
       </button>
-      <button className="btn btn-primary mx-5" onClick={handleclearclick}>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleclearclick}>
         Clear text
       </button>
-      <button className="btn btn-primary mx-5" onClick={handlesentanceclick}>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handlesentanceclick}>
         sentance case
       </button>
-      <button className="btn btn-primary mx-5" onClick={handlesentancelclick}>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handlesentancelclick}>
         sentance case2
       </button>
 
       <div className="container my-4">
         <h1>Your text summary</h1>
         <p>
-          {text.split(" ").length} words and {text.length} characters
+          {text.split(/\s+/).filter((element) => {return element.length !== 0}).length} words and {text.length} characters
         </p>
-        <p>{0.008 * text.split(" ").length} minutes read</p>
+        <p>{0.008 * text.split(" ").filter((element) => {return element.length !== 0}).length} minutes read</p>
         {/* 0.008 for words to read * number of words (125words for 1 minutes)*/}
-        <h3>previwe</h3>
-        <b>{text}</b>
+        <h1>previwe</h1>
+        <b>{text.length>0? text:"Nothing to previwe"}</b>
       </div>
       </div>
     </>

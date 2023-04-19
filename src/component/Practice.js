@@ -1,11 +1,15 @@
+import { NavLink  } from "react-router-dom";
 import "../App.css";
-// import React from "react";
+import React from "react";
+
+// import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+
 
 function Practice(props) {
   return (
     <>
       <nav
-        className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
+        className={`navbar navbar-expand-lg  navbar-${props.mode} bg-${props.mode}`}
       >
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
@@ -25,14 +29,14 @@ function Practice(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
+                <NavLink  className="nav-link" activeClassName="active" aria-current="page" to="/">
                   Home
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link active" href="/">
-                  Link
-                </a>
+                <NavLink  className="nav-link" activeClassName="active" to="/about">
+                   About
+                </NavLink>
               </li>
             </ul>
             <form className="d-flex" role="search">
@@ -45,6 +49,22 @@ function Practice(props) {
               <button className="btn btn-outline-primary" type="submit">
                 Search
               </button>
+
+               <div className="d-flex">
+                <div className="bg-primary rounded mx-2" onClick={() => props.PratapSingh("primary")} 
+                style={{height:"30px", width:"30px" , cursor:"pointer"}}></div>
+                <div className="bg-secondary rounded mx-2" onClick={() => props.PratapSingh("secondary")} 
+                style={{height:"30px", width:"30px" , cursor:"pointer"}}></div>
+                <div className="bg-success rounded mx-2" onClick={() => props.PratapSingh("success")} 
+                style={{height:"30px", width:"30px" , cursor:"pointer"}}></div>
+                <div className="bg-danger rounded mx-2" onClick={() => props.PratapSingh("danger")} 
+                style={{height:"30px", width:"30px" , cursor:"pointer"}}></div>
+                 <div className="bg-warning rounded mx-2" onClick={() => props.PratapSingh("warning")} 
+                style={{height:"30px", width:"30px" , cursor:"pointer"}}></div>
+                 <div className="bg-info rounded mx-2" onClick={() => props.PratapSingh("info")} 
+                style={{height:"30px", width:"30px" , cursor:"pointer"}}></div>
+               </div>
+
             </form>
             <div
               className={`form-check form-switch mx-4 text-${
@@ -53,7 +73,9 @@ function Practice(props) {
             >
               <input
                 className="form-check-input"
-                onClick={props.togalmode}
+                // onClick={props.togalmode}
+                // onClick={() => {props.PratapSingh(null)}}
+                onClick={() => {props.togalmode(null)}}
                 type="checkbox"
                 role="switch"
                 id="flexSwitchCheckDefault"
@@ -82,7 +104,7 @@ function Practice(props) {
                 className="form-check-label"
                 htmlFor="flexSwitchCheckDefault"
               >
-                Enable green mode
+                Enable yellow mode
               </label>
             </div>
 
@@ -102,7 +124,7 @@ function Practice(props) {
                 className="form-check-label"
                 htmlFor="flexSwitchCheckDefault"
               >
-                Enable red mode
+                Enable pink mode
               </label>
             </div>
           </div>

@@ -1,32 +1,42 @@
-import React, { useState } from "react";
+import React from "react";
+// import React, { useState } from "react";
 
-function About() {
+function About(props) {
+   let mystyle = {
+    color : props.mode === "dark"?"white":"#042743",
+    backgroundColor : props.mode === "dark"?"rgb(36 74 104)":"white",
     
-    const [mystyle, setmystyle] = useState ({
-        color : "black",
-        backgroundColor : "white"
-    })
-    const [btntext, setbtntext] = useState("Enable dark mode")
+   }
+    
+    // const [mystyle, setmystyle] = useState ({
+    //     color : "black",
+    //     backgroundColor : "white"
+    // })
+    // const [btntext, setbtntext] = useState("Enable dark mode")
 
-    const handleclick = () => {
-            if(mystyle.color === "black"){
-                setmystyle({
-                    color : "white",
-                    backgroundColor : "black"
-                })
-                setbtntext("Enable light mode");
-            } else {
-                setmystyle({
-                    color : "black",
-                    backgroundColor : "white"
-                })
-                setbtntext("Enable dark mode")
-            }
-    }
+    // const handleclick = () => {
+    //         if(mystyle.color === "black"){
+    //             setmystyle({
+    //                 color : "white",
+    //                 backgroundColor : "black"
+    //             })
+    //             setbtntext("Enable light mode");
+    //         } else {
+    //             setmystyle({
+    //                 color : "black",
+    //                 backgroundColor : "white"
+    //             })
+    //             setbtntext("Enable dark mode")
+    //         }
+    // }
+
+
     // navbar-${props.mode} bg-${props.mode}
+
   return (
-    <div className="container" style = {mystyle}>
-      <h1>About Us</h1>
+    // {mystyle}
+    <div className="container"  style ={{ color : props.mode === "dark"?"white":"#042743",}} >
+      <h1 className="text" style={{color:"black"}}>  About Us</h1>
       <div className="accordion" id="accordionExample" style = {mystyle}>
         <div className="accordion-item">
           <h2 className="accordion-header" >
@@ -123,9 +133,9 @@ function About() {
         </div>
       </div>
       <div className="container my-3"></div>
-      <button type="button" className="btn btn-primary" onClick={handleclick}>
+      {/* <button type="button" className="btn btn-primary" onClick={props.toggelmode}>
         {btntext}
-      </button>
+      </button> */}
     </div>
   );
 }
